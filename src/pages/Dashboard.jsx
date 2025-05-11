@@ -39,7 +39,7 @@ const DashboardPage = () => {
             {/* Logo */}
             <div className="text-lg font-semibold text-orange-600">
               <Link to="/">
-                <span className="text-3xl text-orange-500 font-bold">
+                <span className="text-3xl text-orange-500 font-bold cursor-pointer">
                   <i>Sugary</i>
                 </span>
               </Link>
@@ -76,7 +76,7 @@ const DashboardPage = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-1.5 px-4 rounded shadow-sm transition"
+                className="bg-orange-500 hover:bg-orange-600 text-white cursor-pointer font-medium py-1.5 px-4 rounded shadow-sm transition"
               >
                 Logout
               </button>
@@ -104,7 +104,7 @@ const DashboardPage = () => {
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-1 px-3 rounded shadow-sm"
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-1 px-3 rounded cursor-pointer shadow-sm"
                 >
                   Logout
                 </button>

@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div className="flex-shrink-0">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-3xl text-orange-500 font-bold whitespace-nowrap">
+            <span className="text-3xl text-orange-500 font-bold whitespace-nowrap cursor-pointer">
               <i>Sugary</i>
             </span>
           </Link>
@@ -44,14 +44,14 @@ const Navbar = () => {
           {isLoggedIn ? (
             <button
               onClick={handleLogout}
-              className="text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-sm px-4 py-2"
+              className="text-white bg-orange-500 hover:bg-orange-600 cursor-pointer font-medium rounded-lg text-sm px-4 py-2"
             >
               Logout
             </button>
           ) : (
             <Link
               to="/login"
-              className="text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-sm px-4 py-2"
+              className="text-white bg-orange-500 hover:bg-orange-600 cursor-pointer font-medium rounded-lg text-sm px-4 py-2"
             >
               Login
             </Link>
@@ -88,14 +88,14 @@ const Navbar = () => {
               {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-sm px-4 py-2"
+                  className="w-full text-left text-white bg-orange-500 hover:bg-orange-600 cursor-pointer font-medium rounded-lg text-sm px-4 py-2"
                 >
                   Logout
                 </button>
               ) : (
                 <Link
                   to="/login"
-                  className="block text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-sm px-4 py-2"
+                  className="block text-white bg-orange-500 hover:bg-orange-600 cursor-pointer font-medium rounded-lg text-sm px-4 py-2"
                 >
                   Login
                 </Link>

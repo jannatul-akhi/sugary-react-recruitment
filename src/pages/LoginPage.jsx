@@ -52,7 +52,6 @@ const LoginPage = () => {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
-
       {/* Background image layer */}
       <div className="absolute inset-0 bg-[url('/login-bg.jpg')] bg-cover bg-center z-0" />
 
@@ -64,13 +63,18 @@ const LoginPage = () => {
 
       {/* Login form card */}
       <div className="z-30 w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-2xl animate-fade-in backdrop-blur-md bg-opacity-90">
-        <h2 className="text-2xl font-bold text-center text-gray-800">Sign in to your account</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800">
+          Sign in to your account
+        </h2>
 
         {error && <p className="text-center text-red-600 text-sm">{error}</p>}
 
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
-            <label htmlFor="UserName" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="UserName"
+              className="block text-sm font-medium text-gray-700"
+            >
               Username
             </label>
             <input
@@ -86,7 +90,10 @@ const LoginPage = () => {
           </div>
 
           <div>
-            <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="Password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input
@@ -104,16 +111,11 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition"
+            className="w-full py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition cursor-pointer"
           >
             {loading ? "Logging in..." : "Sign In"}
           </button>
         </form>
-
-        {/* <p className="text-sm text-center text-gray-600">
-          Don't have an account?{" "}
-          <a href="#" className="text-orange-500 hover:underline">Sign up</a>
-        </p> */}
       </div>
     </div>
   );
