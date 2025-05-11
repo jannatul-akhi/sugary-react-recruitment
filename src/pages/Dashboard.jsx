@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MaterialsList from "../components/MaterialsList";
 import TopNavbar from "../components/TopNavbar";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react"; // Optional: npm install lucide-react
+import { Menu, X } from "lucide-react";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
@@ -11,7 +11,9 @@ const DashboardPage = () => {
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (!storedUser) {
+    const token = localStorage.getItem("accessToken");
+
+    if (!storedUser || !token) {
       navigate("/login");
     } else {
       setUser(storedUser);
@@ -19,19 +21,21 @@ const DashboardPage = () => {
   }, [navigate]);
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
   if (!user) return null;
 
   return (
-    <div>
+    <div className="">
       <TopNavbar user={user} handleLogout={handleLogout} />
-      <div className="min-h-screen bg-orange-50">
+      <div className="min-h-screen bg-orange-50 ">
         {/* Navbar */}
-        <nav className="bg-white px-6 py-4 border-b border-orange-100 shadow">
-          <div className="flex items-center justify-between">
+        <nav className="bg-white px-6 py-4  ">
+          <div className="flex items-center justify-between w-11/12 mx-auto">
             {/* Logo */}
             <div className="text-lg font-semibold text-orange-600">
               <Link to="/">
@@ -52,14 +56,14 @@ const DashboardPage = () => {
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden md:flex space-x-4 ms-24 font-medium text-lg text-black">
+            <ul className="hidden md:flex space-x-7 ms-44 font-medium text-lg text-black">
               <li>
-                <a href="/" className="hover:text-orange-600 transition">
+                <a href="/" className="hover:text-orange-600 transition text-base font-medium">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-600 transition">
+                <a href="#" className="hover:text-orange-600 transition text-base font-medium">
                   Dashboard
                 </a>
               </li>
@@ -84,13 +88,13 @@ const DashboardPage = () => {
             <div className="md:hidden mt-4 space-y-3">
               <a
                 href="/"
-                className="block px-2 py-2 rounded hover:bg-orange-100"
+                className="block px-2 py-2 rounded hover:bg-orange-100 text-2xl font-medium"
               >
                 Home
               </a>
               <a
                 href="#"
-                className="block px-2 py-2 rounded hover:bg-orange-100"
+                className="block px-2 py-2 rounded hover:bg-orange-100 text-base font-medium"
               >
                 Dashboard
               </a>
@@ -110,7 +114,7 @@ const DashboardPage = () => {
         </nav>
 
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto mt-8 px-4">
+        <div className="max-w-6xl mx-auto mt-8 px-4 pb-8">
           <MaterialsList />
         </div>
       </div>
